@@ -73,10 +73,11 @@
     .section-head p:last-child:not(.eyebrow) { margin-top: .75rem; max-width: 43rem; color: var(--muted); }
     .projects { display: grid; grid-template-columns: 1.15fr .85fr; gap: 1rem; }
     .project { display: flex; flex-direction: column; gap: .75rem; border: 1px solid var(--line); border-radius: .5rem; padding: clamp(1.25rem, 3vw, 2rem); background: var(--white); }
-    .project:first-child { background: #e9f0e2; border-color: #cad9c6; }
+    .project.featured { grid-column: 1 / -1; background: #e9f0e2; border-color: #cad9c6; }
     .project .meta, .when { color: var(--green); font-size: .875rem; font-weight: 650; }
     .project h3 { font-family: var(--serif); font-size: clamp(1.75rem, 3vw, 2.2rem); font-weight: 400; letter-spacing: -.045em; }
     .project > p:not(.meta) { color: var(--muted); max-width: 35rem; }
+    .project.featured > p:not(.meta) { max-width: 48rem; }
     .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: auto 0 0; padding: .35rem 0 0; list-style: none; }
     .tags li { border: 1px solid #cbd7ca; border-radius: 2rem; padding: .25rem .64rem; font-size: .875rem; color: #304d3d; }
     .tinted { background: #edf1e9; border-block: 1px solid var(--line); }
@@ -132,7 +133,7 @@
       .cert-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media print {
-      body, .dark, .tinted, .contact, .project, .project:first-child { background: white; color: black; }
+      body, .dark, .tinted, .contact, .project, .project.featured { background: white; color: black; }
       .wrap { width: 100%; }
       .site-head, .site-footer, .skip, .actions, .portrait, .focus-bar { display: none; }
       .hero-grid { display: block; min-height: 0; padding: .5rem 0 1.2rem; }
@@ -189,6 +190,12 @@
           <p>Business applications and web systems I helped build across consulting and product teams.</p>
         </header>
         <div class="projects">
+          <article class="project featured" id="agentforce-project">
+            <p class="meta">Simplus Philippines Inc.</p>
+            <h3>Agentforce employee agent</h3>
+            <p>Developed an employee-facing Agentforce agent for a client account. Implemented use cases that update Salesforce records with details extracted from attached files and automatically create custom child records from user input.</p>
+            <ul class="tags" aria-label="Technologies"><li>Agentforce</li><li>Salesforce</li></ul>
+          </article>
           <article class="project">
             <p class="meta">Accenture Japan</p>
             <h3>Legacy ERP modernization</h3>
@@ -224,7 +231,7 @@
           <h2 id="experience-heading">Experience</h2>
         </header>
         <ol class="timeline">
-          <li><p class="when">2025–2026</p><div><h3>Technology Analyst (Senior Consultant)</h3><p class="company">Simplus Philippines Inc.</p><p>Salesforce administration and development with Apex, LWC, Flows, and Agentforce. Release management using Change Sets and Gearset.</p></div></li>
+          <li><p class="when">2025–Present</p><div><h3>Technology Analyst (Senior Consultant)</h3><p class="company">Simplus Philippines Inc.</p><p>Salesforce administration and development with Apex, LWC, Flows, and Agentforce. Release management using Change Sets and Gearset.</p></div></li>
           <li><p class="when">2024–2025</p><div><h3>Packaged App Development Senior Analyst</h3><p class="company">Accenture Japan Ltd.</p><p>Salesforce ERP development and coordination with the API integration team.</p></div></li>
           <li><p class="when">2022–2025</p><div><h3>Packaged App Development Senior Analyst</h3><p class="company">Accenture Inc. · Philippines</p><p>Salesforce and Conga CPQ development, followed by offshore maintenance team leadership.</p></div></li>
           <li><p class="when">2020–2021</p><div><h3>PHP Developer</h3><p class="company">Deployed Philippines Inc. / BBT Digital · New Zealand</p><p>Silverstripe and GraphQL development for e-commerce and reservations.</p></div></li>
